@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var segueSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +21,17 @@ class ViewController: UIViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.navigationItem.title = textField.text
+    @IBAction func yellowButtonTapped(_ sender: Any){
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Yellow", sender: nil)
+        }
     }
     
+    @IBAction func greenButtonTapped(_ sender: Any){
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Green", sender: nil)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
